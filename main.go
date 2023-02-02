@@ -1,6 +1,7 @@
 package main
 
 import (
+	"discord-bot/pkg/simsimi"
 	"fmt"
 	"os"
 	"os/signal"
@@ -67,10 +68,20 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	// If the message is "ping" reply with "Pong!"
 	if content == "ping" {
 		s.ChannelMessageSend(m.ChannelID, "Pong!")
+		return
 	}
 
 	// If the message is "pong" reply with "Ping!"
-	if m.Content == "pong" {
+	if content == "pong" {
 		s.ChannelMessageSend(m.ChannelID, "Ping!")
+		return
 	}
+
+	msg, err := simsimi.SendMessage(content)
+	if err != nil {
+		fmt.Println("Error: ", err)
+		return
+	}
+
+	s.ChannelMessageSend(m.ChannelID, msg)
 }
