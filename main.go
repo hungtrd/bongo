@@ -3,6 +3,7 @@ package main
 import (
 	"bongo/config"
 	"bongo/pkg/discord"
+	"bongo/pkg/openai"
 	"fmt"
 	"os"
 	"os/signal"
@@ -11,6 +12,7 @@ import (
 
 func main() {
 	config.Setup()
+	openai.Setup()
 	dg := discord.Setup()
 	// Open a websocket connection to Discord and begin listening.
 	err := dg.Open()

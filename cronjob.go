@@ -13,12 +13,7 @@ import (
 func cronjobSetup() *cron.Cron {
 	c := cron.New(cron.WithSeconds())
 
-	jobID, _ := c.AddFunc("0 * * * * *", func() {
-		fmt.Println("Every minute", time.Now())
-		JobLunarCalendarCheck()
-	})
-	fmt.Println("Sign job: ", jobID)
-	jobID, _ = c.AddFunc("0 0 8 * * *", func() { JobLunarCalendarCheck() })
+	jobID, _ := c.AddFunc("0 0 8 * * *", func() { JobLunarCalendarCheck() })
 	fmt.Println("Sign job: ", jobID)
 
 	c.Start()

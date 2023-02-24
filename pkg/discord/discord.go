@@ -2,7 +2,7 @@ package discord
 
 import (
 	"bongo/config"
-	"bongo/pkg/simsimi"
+	"bongo/pkg/openai"
 	"fmt"
 	"strings"
 
@@ -57,7 +57,8 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		return
 	}
 
-	msg, err := simsimi.SendMessage(content)
+	// msg, err := simsimi.SendMessage(content)
+	msg, err := openai.SendPrompt(content)
 	if err != nil {
 		fmt.Println("Error: ", err)
 		return
