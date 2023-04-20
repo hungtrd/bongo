@@ -4,6 +4,7 @@ import "os"
 
 const (
 	DiscordRemindChannelID string = "1070606289048186950"
+	TimeZone               string = "Asia/Ho_Chi_Minh"
 )
 
 var (
