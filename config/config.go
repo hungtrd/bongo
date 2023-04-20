@@ -3,7 +3,7 @@ package config
 import "os"
 
 const (
-	DiscordRemindChannelID string = "1070606289048186950"
+	DiscordRemindChannelID string = "1098535545933672499"
 	TimeZone               string = "Asia/Ho_Chi_Minh"
 )
 
