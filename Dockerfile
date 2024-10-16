@@ -10,6 +10,6 @@ COPY . .
 
 RUN GOARCH=arm GOOS=linux go build -o main .
 
-EXPOSE 80801
+EXPOSE 8880
 
 CMD ["./main"]
