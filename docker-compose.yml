@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  bongo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80801:80801"
+    env_file:
+      - .env
+    restart: unless-stopped
